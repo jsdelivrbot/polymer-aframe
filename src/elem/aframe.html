@@ -2,17 +2,6 @@
 <link rel="import" href="./aframe-import.html">
 <dom-module id="aframe-element">
     <template>
-        <style>
-         :host {
-            display: block;
-        }
-        /* Thanks IE 10. */
-
-
-        .hidden {
-            display: none !important;
-        }
-        </style>
         <a-scene embedded arjs='trackingMethod: best;'>
             <!-- Create a anchor to attach your augmented reality -->
             <a-anchor hit-testing-enabled='true'>
