@@ -1,0 +1,7 @@
+{
+  "name": "polymer-aframe",
+  "short_name": "polymer-aframe",
+  "description": "Integrtion tets",
+  "start_url": "/",
+  "display": "standalone"
+}
