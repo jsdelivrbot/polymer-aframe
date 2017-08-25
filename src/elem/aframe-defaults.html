@@ -1,0 +1,26 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="./aframe-import.html">
+<dom-module id="aframe-photo">
+    <template>
+        <a-scene altspace scale="0.1 0.1 0.1">
+            <!-- These demonstrate the default primitive settings. -->
+            <!-- Color and position added to help distinguish them from each other. -->
+            <a-video color="#F16745" position="-7 0 -6"></a-video>
+            <a-image color="#7BC8A4" position="-4 0 -6"></a-image>
+            <a-sphere color="#4CC3D9" position="-2 0 -6"></a-sphere>
+            <a-box color="#FFC65D" position="0 0 -6"></a-box>
+            <a-cylinder color="#93648D" position="2 0 -6"></a-cylinder>
+            <a-plane color="#F16745" position="4 0 -6"></a-plane>
+        </a-scene>
+    </template>
+    <script>
+    Polymer({
+        is: 'aframe-photo',
+
+
+        ready: function() {
+
+        },
+    })
+    </script>
+</dom-module>

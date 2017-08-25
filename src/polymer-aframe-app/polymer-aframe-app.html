@@ -22,6 +22,9 @@
             <aframe-photo></aframe-photo>
         </template>
         <template is="dom-if" if={{isAR}} restamp>
+            <aframe-element style="z-index:100;left: 0;
+    position: absolute;
+    top: 0;"></aframe-element>
             <app-media-devices kind="videoinput" selected-device="{{videoDevice}}">
             </app-media-devices>
             <!-- ...devices are connected to the media stream.... -->
@@ -43,22 +46,22 @@
 
         },
         showGaze: function() {
-            this.isGaze = !this.isGaze;
-            this.isPhoto = !this.isPhoto;
-            this.isAR = !this.isAR;
+            this.isGaze = true
+            this.isPhoto = false
+            this.isAR = false;
 
         },
 
         showPhoto: function() {
-            this.isPhoto = !this.isPhoto;
-            this.isGaze = !this.isGaze;
-            this.isAR = !this.isAR;
+            this.isPhoto = true
+            this.isGaze = false
+            this.isAR = false
 
         },
         showAR: function() {
-            this.isPhoto = !this.isPhoto;
-            this.isGaze = !this.isGaze;
-            this.isAR = !this.isAR;
+            this.isPhoto = false
+            this.isGaze = false
+            this.isAR = true
 
         },
 
