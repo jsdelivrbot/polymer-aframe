@@ -4,6 +4,7 @@
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/app-media/app-media.html">
 <link rel="import" href="../elem/aframe.html">
 <link rel="import" href="../elem/aframe-photo.html">
 <dom-module id="polymer-aframe-app">
@@ -12,7 +13,7 @@
             <paper-icon-button on-click="showGaze" icon="menu"></paper-icon-button>
             <paper-button on-click="showGaze" class="">Gaze interactions</paper-button>
             <paper-button on-click="showPhoto" class="">Photo interactions</paper-button>
-            <span class="title">Bottom Title</span>
+            <paper-button on-click="showAR" class="">AR interactions</paper-button>
         </paper-toolbar>
         <template is="dom-if" if={{isGaze}} restamp>
             <aframe-element></aframe-element>
@@ -20,25 +21,44 @@
         <template is="dom-if" if={{isPhoto}} restamp>
             <aframe-photo></aframe-photo>
         </template>
+        <template is="dom-if" if={{isAR}} restamp>
+            <app-media-devices kind="videoinput" selected-device="{{videoDevice}}">
+            </app-media-devices>
+            <!-- ...devices are connected to the media stream.... -->
+            <app-media-stream video-device="[[videoDevice]]" stream="{{stream}}" active>
+            </app-media-stream>
+            <!-- ...media stream is connected to the video output... -->
+            <app-media-video id="video" source="[[stream]]" on-click="record" autoplay muted mirror>
+            </app-media-video>
+        </template>
     </template>
     <script>
     Polymer({
 
         is: 'polymer-aframe-app',
         ready: function() {
-            this.isGaze = false;
-            this.isPhoto = true;
+            this.isGaze = true;
+            this.isPhoto = false;
+            this.isAR = false;
 
         },
         showGaze: function() {
             this.isGaze = !this.isGaze;
             this.isPhoto = !this.isPhoto;
+            this.isAR = !this.isAR;
 
         },
 
         showPhoto: function() {
             this.isPhoto = !this.isPhoto;
             this.isGaze = !this.isGaze;
+            this.isAR = !this.isAR;
+
+        },
+        showAR: function() {
+            this.isPhoto = !this.isPhoto;
+            this.isGaze = !this.isGaze;
+            this.isAR = !this.isAR;
 
         },
 
